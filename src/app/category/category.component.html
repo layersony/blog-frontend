@@ -1,0 +1,20 @@
+<div id="catergorysection" class='mb-5'>
+  <div class="categories p-2">
+    <h5>Categories</h5>
+    <ol *ngFor='let cate of category'>
+      <li>{{cate.category}}</li>
+      <ul *ngFor='let subcat of cate.subcategory'>
+        <li>{{subcat|titlecase}}</li>
+      </ul>
+    </ol>
+  </div>
+</div>
+
+<div id="tags" class='p-2 mt-5'>
+  <div class="tags p-2">
+    <h5>Tags</h5>
+    <ul *ngFor='let tag of tags'>
+      <li [style.font-size.px]="tag.fontsize" >{{tag.tagname}}</li>
+    </ul>
+  </div>
+</div>

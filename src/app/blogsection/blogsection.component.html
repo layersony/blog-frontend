@@ -1,0 +1,21 @@
+<div class="blogsection">
+  <div class="actblog mb-3 d-flex justify-content-center align-items-center flex-column" *ngFor='let blog of blogs; let i = index'>
+    <img src="{{ blog.image }}" alt="defaultimg" class="img-fluid image">
+    <div class="blogdetail w-100">
+      <div class="mt-2 d-flex justify-content-around align-items-center">
+        <p><i class="fal fa-user"></i> {{blog.author|titlecase}}</p>
+        <p>{{blog.category }} / {{blog.subcat}}</p>
+        <p><i class="fal fa-clock"></i> Created {{blog.created|date}}</p>
+      </div>
+      <hr>
+      <div class="p-2 moredetail d-flex justify-content-center align-items-start flex-column">
+        <h2>{{blog.title|titlecase}}</h2>
+        <p>{{ blog.description | truncate:[150] }}</p>
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <a href="{{blog.url}}"><button class="btn btn-sm">Read More...</button></a>
+          <span class="tags" *ngFor='let tag of blog.tagname'>{{tag}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Ubuntu:wght@300&display=swap');
+
+
+$black: black;
+$color: black;
+$font1: 'Ubuntu', sans-serif;
+$font2: 'Roboto Mono', monospace;;
+$fontsize: 19px;
+
+// *{
+//   // transition: 300ms !important;
+//   margin: 0;
+//   padding: 0;
+// }

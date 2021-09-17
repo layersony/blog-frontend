@@ -1,0 +1,40 @@
+$black: black;
+
+#id{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  .profiledetail{
+    padding: 5px;
+    .profileimage{
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .name{
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+  .prostats{
+    .articles{
+      font-size: 25px;
+      font-weight: 500;
+      .prostatshead{
+        margin-bottom: 2px;
+        font-size: 13px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .socialicons{
+    .fab{
+      font-size: 18px;
+      color: $black;
+    }
+  }
+  button{
+    border: none;
+    outline: none;
+  }
+}
