@@ -20,6 +20,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { SavelocalService } from './api/savelocal.service';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CategoryComponent,
     BlogdetailsComponent,
     ProjectsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ComingSoonComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<div class="commingsoon">
+  <div class="page">
+
+    <div class="page__middle">
+      <div class="center">
+        <div class="title">
+          Page Coming Soon <br>
+          <span style='font-size: 19px; font-weight: 500;'>Feel free to Subscribe to Our Mailing List</span>
+        </div>
+        <a class="btn notifyme" (click)='toshowmail()'><span class="btn__label">{{ notmessagebtn }}</span></a>
+        <div class="inputmail mt-5" *ngIf='showmail'>
+          <form action="">
+            <input type="text" name="" class='form-control mb-2' id="" placeholder='Email...'>
+            <button class="btn btn-outline-light" >Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
