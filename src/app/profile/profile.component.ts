@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   }
 
   async getblogs(){
-    this.apiserive.ProfileRequest()
+    
     await this.sleep(1000)
     this.blogs = this.apiserive.blogs
     this.blogsthecount = this.blogs.length

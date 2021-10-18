@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicesService } from './api/services.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'blog';
+  constructor(private service:ServicesService){}
+
+  ngOnInit(): void {
+    this.service.ProfileRequest()
+    this.service.CateforyRequest()
+    this.service.TagRequest()
+    this.service.blogRequest()
+  }
 }

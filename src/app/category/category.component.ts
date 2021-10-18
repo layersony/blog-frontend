@@ -22,8 +22,6 @@ export class CategoryComponent implements OnInit {
   }
 
   async getcatags(){
-    this.blogservice.CateforyRequest()
-    this.blogservice.TagRequest()
     await this.sleep(1000)
     this.category = this.blogservice.categorys
     this.tags = this.blogservice.tags

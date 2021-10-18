@@ -12,6 +12,14 @@ import { TruncatePipe } from './extras/truncate.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryComponent } from './category/category.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { SavelocalService } from './api/savelocal.service';
+
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,15 +28,21 @@ import { CategoryComponent } from './category/category.component';
     BlogsectionComponent,
     TruncatePipe,
     ProfileComponent,
-    CategoryComponent
+    CategoryComponent,
+    BlogdetailsComponent,
+    ProjectsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CKEditorModule,
+    StorageServiceModule,
+    NgxPaginationModule,
   ],
-  providers: [],
+  providers: [SavelocalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

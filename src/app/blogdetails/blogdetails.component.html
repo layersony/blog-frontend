@@ -1,0 +1,43 @@
+<div class="imagediv">
+  <img src="{{ blog.image }}" alt="defaultimg" class="img-fluid image" *ngIf='blog.image'>
+</div>
+
+<div class="blogdetails container mt-1 mb-4">
+  <div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 centered">
+    <div class="mb-3 d-flex  flex-column">
+      <div class="titlediv">
+        <h2 class="font-bold ps-3" *ngIf='blog.title'>{{blog.title|titlecase}}</h2>
+      </div>
+
+      <div class="mt-1 p-4 d-flex justify-content-between align-items-center blogsubinfo">
+        <div class="blogsubinfodiv">
+          <p *ngIf='blog.author_name'><i class="fas fa-user"></i> {{blog.author_name|titlecase}}</p> 
+        </div>
+        <div class="blogsubinfodiv">
+          <p *ngIf='blog.blog_category'>{{blog.blog_category }} / {{blog.SubCategory}}</p> 
+        </div>
+        <div class="blogsubinfodiv">
+          <p *ngIf='blog.created_at'><i class="fas fa-clock"></i> {{blog.created_at|date}}</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end align-items-center">
+        <span class="me-1">Tags: </span>
+        <span class="tags" *ngFor='let tag of blog.tagnames'>{{tag}}</span>
+      </div>
+
+      <div class="blogdetaildiv mt-1">
+        <div class="blogdetail p-2">
+            <div class="p-2 moredetail d-flex justify-content-center align-items-start flex-column">
+              <p [innerHTML]="blog.description"></p>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  </div>
+</div>

@@ -1,15 +1,85 @@
-.container{
-  .row{
-    .left{
-      text-align: center;
-      height: 500px;
+.blognav{
+  color: black;
+  border-bottom: 1px solid;
+  .container-fluid{
+    .logoimage{
+      width: 217px;
     }
-    .center{
-      padding: 10px 0 0 10px;
+    button[type=button]{
+      box-shadow: none;
     }
-    .right{
-      text-align: center;
-      height: 500px;
+    .collapse{
+      ul{
+        li a{
+          display: inline-block;
+          color: black ;
+          font-size: 17px;
+          text-transform: uppercase;
+          border-bottom: 2px solid white;
+          text-decoration: none;
+          font-weight: 500;
+          &::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: green;
+            transition: width .3s;
+          }
+          &:hover::after{
+            color: green !important;
+            border-bottom: 2px solid;
+            width: 100%;
+          }
+          &:hover{
+            color: green !important;
+          }
+        }
+      }
+    }
+    .form{
+      input[type=search]{
+        outline: none;
+        font-family: inherit;
+        font-size: 100%;
+        background: url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+        border: none;
+        padding: 6px 8px 5px 28px;
+        width: 15px;
+        border-radius: 10em;
+        transition: all ease-in-out .5s;
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button {
+          display: none; 
+        }
+        &:focus {
+          width: 100%;
+          background-color: #fff;
+          border: 1px solid rgb(0, 0, 0);
+        }
+      }
+      button{
+        border-radius: 50px;
+      }
+      &:focus > .search{
+        width: 200px;
+        background: green;
+      }
+    }
+  }
+}
+
+footer{
+  a{
+    i{
+      font-size: 20px;
+      padding: 10px;
+      transition: all ease-in-out .3s;
+      &:hover{
+        color: rgba(0, 0, 0, 0.884);
+        background: white;
+        border-radius: 5px;
+      }
     }
   }
 }

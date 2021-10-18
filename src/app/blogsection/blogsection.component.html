@@ -1,21 +1,29 @@
 <div class="blogsection">
-  <div class="actblog mb-3 d-flex justify-content-center align-items-center flex-column" *ngFor='let blog of blogs; let i = index'>
-    <img src="{{ blog.image }}" alt="defaultimg" class="img-fluid image">
+  <div class="actblog me-2 mb-3 d-flex justify-content-center align-items-center flex-column" *ngFor='let blog of blogs | paginate: { itemsPerPage: 10, currentPage: page, totalItems:totallength }; let i = index'>
+    <div class="imagediv">
+      <img src="{{ blog.image }}" alt="defaultimg" class="img-fluid image" *ngIf='blog.image'>
+    </div>
+
     <div class="blogdetail w-100">
-      <div class="mt-2 d-flex justify-content-around align-items-center">
-        <p><i class="fal fa-user"></i> {{blog.author|titlecase}}</p>
-        <p>{{blog.category }} / {{blog.subcat}}</p>
-        <p><i class="fal fa-clock"></i> Created {{blog.created|date}}</p>
+      <div class="mt-2 d-flex justify-content-around align-items-center blogsubinfo">
+        <p><i class="fas fa-user"></i> {{blog.author_name|titlecase}}</p>
+        <p>{{blog.blog_category }} / {{blog.SubCategory}}</p>
+        <p><i class="fas fa-clock"></i> {{blog.created_at|date}}</p>
       </div>
       <hr>
       <div class="p-2 moredetail d-flex justify-content-center align-items-start flex-column">
-        <h2>{{blog.title|titlecase}}</h2>
-        <p>{{ blog.description | truncate:[150] }}</p>
-        <div class="d-flex justify-content-between align-items-center w-100">
-          <a href="{{blog.url}}"><button class="btn btn-sm">Read More...</button></a>
-          <span class="tags" *ngFor='let tag of blog.tagname'>{{tag}}</span>
+        <div class="moredetaildiv">
+          <h2>{{blog.title|titlecase}}</h2>
+          <p [innerHTML]="blog.description | truncate:200"></p>
+          <div class="d-flex justify-content-between align-items-center w-100">
+            <button (click)='gotoURL(blog.id)' class="btn btn-sm">Read More...</button>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="tags" *ngFor='let tag of blog.tagnames'>{{tag}}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../api/services.service'
 
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-blogsection',
   templateUrl: './blogsection.component.html',
@@ -10,7 +11,10 @@ export class BlogsectionComponent implements OnInit {
 
   blogs: any = []
 
-  constructor(private blogservice:ServicesService) { }
+  totallength:any;
+  page:number = 1;
+
+  constructor(private blogservice:ServicesService, private router:Router) { }
 
   ngOnInit(): void {
     this.getblogs()
@@ -21,8 +25,13 @@ export class BlogsectionComponent implements OnInit {
   }
 
   async getblogs(){
-    this.blogservice.blogRequest()
     await this.sleep(1000)
     this.blogs = this.blogservice.blogs
+    this.totallength = this.blogs.length
+  }
+
+  // navigate to full blog
+  gotoURL(id:number){
+    this.router.navigate(['/blog', id])
   }
 }

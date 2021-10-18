@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'https://blogbackendmaingi.herokuapp.com/allblogs'
+  // apiUrl: 'https://blogbackendmaingi.herokuapp.com/api'
   apiUrl: 'http://127.0.0.1:8000/api/',
+  // apiUrl: 'https://d9d6-102-7-83-185.ngrok.io/api/'
 };
 
 /*

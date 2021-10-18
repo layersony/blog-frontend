@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "aws-deploy": "aws s3 sync dist/blog/ s3://maingiblog"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +20,10 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "bootstrap": "^5.0.0",
+    "ckeditor4-angular": "^2.2.2",
     "material-tooltip": "^1.0.1",
+    "ngx-pagination": "^5.1.1",
+    "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

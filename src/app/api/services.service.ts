@@ -6,6 +6,9 @@ import { Category } from '../blueprints/category'
 import { Profile } from '../blueprints/profile'
 import { Tags } from '../blueprints/tags'
 
+import { from, Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,7 +33,7 @@ export class ServicesService {
     let promise = new Promise((resolve, reject)=>{
       this.http.get<any>(environment.apiUrl+'allblogs/').toPromise().then(response=>{
         for (let i = 0; i < response.length; i++){
-          this.singleblog = new Blog(response[i].url, response[i].image, response[i].title, response[i].description, response[i].author_name, response[i].blog_category, response[i].SubCategory, response[i].tagnames, response[i].updated_at, response[i].created_at)
+          this.singleblog = new Blog(response[i].id, response[i].url, response[i].image, response[i].title, response[i].description, response[i].author_name, response[i].blog_category, response[i].SubCategory, response[i].tagnames, response[i].updated_at, response[i].created_at)
           this.blogs.push(this.singleblog)
         }
         resolve('success')
@@ -41,6 +44,14 @@ export class ServicesService {
       })
     })
     return promise;
+  }
+
+  blogzz(blogId:any):Observable<Blog>{
+    return this.http.get(environment.apiUrl+'allblogs/'+blogId+'/').pipe(map((data:any)=>{
+      return data
+    }), catchError( error => {
+      return throwError( 'Blogs Not Initialized')
+    }))
   }
 
   CateforyRequest(){
@@ -102,5 +113,22 @@ export class ServicesService {
     
     return promise;
   }
-}
 
+  Tagzz() :Observable<Tags>{
+    return this.http.get(environment.apiUrl+'alltags').pipe(map((data:any)=>{
+      return data;
+    }), catchError( error => {
+      return throwError('Tags Not Initialized')
+    })
+    )
+  }
+
+  getOneBlog(id:any){
+    for (let blog of this.blogs){
+      
+      if (blog.id == id){
+        return blog
+      }
+    }
+  }
+}
