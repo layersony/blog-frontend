@@ -31,7 +31,7 @@ export class ServicesService {
   
   blogRequest(){   
     let promise = new Promise((resolve, reject)=>{
-      this.http.get<any>(environment.apiUrl+'allblogs/').toPromise().then(response=>{
+      this.http.get<any>(environment.apiUrl+'allblogs').toPromise().then(response=>{
         for (let i = 0; i < response.length; i++){
           this.singleblog = new Blog(response[i].id, response[i].url, response[i].image, response[i].title, response[i].description, response[i].author_name, response[i].blog_category, response[i].SubCategory, response[i].tagnames, response[i].updated_at, response[i].created_at)
           this.blogs.push(this.singleblog)
@@ -47,7 +47,7 @@ export class ServicesService {
   }
 
   blogzz(blogId:any):Observable<Blog>{
-    return this.http.get(environment.apiUrl+'allblogs/'+blogId+'/').pipe(map((data:any)=>{
+    return this.http.get(environment.apiUrl+'allblogs/'+blogId).pipe(map((data:any)=>{
       return data
     }), catchError( error => {
       return throwError( 'Blogs Not Initialized')
@@ -81,7 +81,7 @@ export class ServicesService {
       email:string;
     }
     let promise = new Promise((resolve, reject)=>{
-      this.http.get<APIRequest>(environment.apiUrl+'userprofile/').toPromise().then(response=>{
+      this.http.get<APIRequest>(environment.apiUrl+'userprofile').toPromise().then(response=>{
         this.profile.user_name = response.user_name
         this.profile.git_url = response.git_url
         this.profile.porfolio_url = response.porfolio_url
